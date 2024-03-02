@@ -6,7 +6,7 @@
 /*   By: souchane <souchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:48:30 by souchane          #+#    #+#             */
-/*   Updated: 2024/03/01 17:07:12 by souchane         ###   ########.fr       */
+/*   Updated: 2024/03/02 17:10:08 by souchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,63 +99,63 @@ void checkwin(t_game *game)
 	}
 }
 
-void	coll_loop(t_game *game)
-{
-	int ptr;
-	if (game->fram_coin == 8)
-		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-0.xpm", &ptr, &ptr);
-	else if (game->fram_coin == 16)
-		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-1.xpm", &ptr, &ptr);
-	else if (game->fram_coin == 24)
-		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-2.xpm", &ptr, &ptr);
-	else if (game->fram_coin == 32)
-		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-3.xpm", &ptr, &ptr);
-	if (game->fram_coin == 32)
-		game->fram_coin = -1;
-	game->fram_coin++;
-}
-void	door_loop(t_game *game)
-{
-	int ptr;
-	if (game->open)
-	{
-		if (game->frame_door == 0)
-			game->exit= mlx_xpm_file_to_image(game->mlx, "imgs/door/d_o_0.xpm", &ptr, &ptr);
-		else if (game->frame_door == 10)
-			game->exit= mlx_xpm_file_to_image(game->mlx, "imgs/door/d_o_1.xpm", &ptr, &ptr);
-		else if (game->frame_door == 20)
-			game->exit= mlx_xpm_file_to_image(game->mlx, "imgs/door/d_o_2.xpm", &ptr, &ptr);
-	}
-	else
-	{
-		if (game->frame_door == 0)
-			game->exit = mlx_xpm_file_to_image(game->mlx, "imgs/door/d_c_0.xpm", &ptr, &ptr);
-		else if (game->frame_door == 10)
-			game->exit = mlx_xpm_file_to_image(game->mlx, "imgs/door/d_c_1.xpm", &ptr, &ptr);
-		else if (game->frame_door == 20)
-			game->exit = mlx_xpm_file_to_image(game->mlx, "imgs/door/d_c_2.xpm", &ptr, &ptr);
-	}
-	if (game->frame_door == 20)
-		game->frame_door = -1;
-	game->frame_door++;
-}
-void message(t_game *game)
-{
-	char *itoa;
+// void	coll_loop(t_game *game)
+// {
+// 	int ptr;
+// 	if (game->fram_coin == 8)
+// 		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-0.xpm", &ptr, &ptr);
+// 	else if (game->fram_coin == 16)
+// 		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-1.xpm", &ptr, &ptr);
+// 	else if (game->fram_coin == 24)
+// 		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-2.xpm", &ptr, &ptr);
+// 	else if (game->fram_coin == 32)
+// 		game->coll = mlx_xpm_file_to_image(game->mlx, "imgs/coin/stone-3.xpm", &ptr, &ptr);
+// 	if (game->fram_coin == 32)
+// 		game->fram_coin = -1;
+// 	game->fram_coin++;
+// }
+// void	door_loop(t_game *game)
+// {
+// 	int ptr;
+// 	if (game->open)
+// 	{
+// 		if (game->frame_door == 0)
+// 			game->exit= mlx_xpm_file_to_image(game->mlx, "imgs/door/d_o_0.xpm", &ptr, &ptr);
+// 		else if (game->frame_door == 10)
+// 			game->exit= mlx_xpm_file_to_image(game->mlx, "imgs/door/d_o_1.xpm", &ptr, &ptr);
+// 		else if (game->frame_door == 20)
+// 			game->exit= mlx_xpm_file_to_image(game->mlx, "imgs/door/d_o_2.xpm", &ptr, &ptr);
+// 	}
+// 	else
+// 	{
+// 		if (game->frame_door == 0)
+// 			game->exit = mlx_xpm_file_to_image(game->mlx, "imgs/door/d_c_0.xpm", &ptr, &ptr);
+// 		else if (game->frame_door == 10)
+// 			game->exit = mlx_xpm_file_to_image(game->mlx, "imgs/door/d_c_1.xpm", &ptr, &ptr);
+// 		else if (game->frame_door == 20)
+// 			game->exit = mlx_xpm_file_to_image(game->mlx, "imgs/door/d_c_2.xpm", &ptr, &ptr);
+// 	}
+// 	if (game->frame_door == 20)
+// 		game->frame_door = -1;
+// 	game->frame_door++;
+// }
+// void message(t_game *game)
+// {
+// 	char *itoa;
 	
-	itoa = ft_itoa(game->count);
-	mlx_string_put(game->mlx, game->mlx_win, 5, 5, 0x0, itoa);
-	free(itoa);
-}
-int gameloop(t_game *game)
-{
-	coll_loop(game);
-	door_loop(game);
-	mlx_clear_window(game->mlx, game->mlx_win);
-	buildimgs(game);
-	message(game);
-	return (1);
-}
+// 	itoa = ft_itoa(game->count);
+// 	mlx_string_put(game->mlx, game->mlx_win, 5, 5, 0x0, itoa);
+// 	free(itoa);
+// }
+// int gameloop(t_game *game)
+// {
+// 	coll_loop(game);
+// 	door_loop(game);
+// 	mlx_clear_window(game->mlx, game->mlx_win);
+// 	buildimgs(game);
+// 	message(game);
+// 	return (1);
+// }
 
 void run(char *str)
 {

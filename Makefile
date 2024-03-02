@@ -6,7 +6,7 @@
 #    By: souchane <souchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 16:14:00 by souchane          #+#    #+#              #
-#    Updated: 2024/03/01 16:53:07 by souchane         ###   ########.fr        #
+#    Updated: 2024/03/02 17:13:27 by souchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,9 @@ LIBFT			= libft/ft_putstr libft/ft_strcmp libft/ft_putnbr libft/ft_split libft/f
 GAME			= game/ft_run 
 CHECK			= check/ft_check_coll check/ft_check_exit check/ft_check_player check/ft_check_none_char \
 					check/ft_check_path  check/ft_check_file  check/ft_check	check/ft_checkmap 
-MOVE            = move/move_down move/move_right move/move_left move/move_up move/move move/quit		
-FILES 			= $(LIBFT) $(CHECK) $(GAME) $(MOVE) main
+MOVE            = move/move_down move/move_right move/move_left move/move_up move/move move/quit
+LOOP			= loop/message loop/coll_loop loop/door_loop loop/gameloop
+FILES 			= $(LIBFT) $(CHECK) $(GAME) $(MOVE) $(LOOP) main
 FRAMEWORKS 		= -lmlx -framework OpenGL -framework AppKit
 
 SOURCE_F	= $(FILES:=.c)
